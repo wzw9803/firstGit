@@ -1,0 +1,31 @@
+1、设置你的名字和Email地址
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+注意gitconfig命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+
+2、通过git init命令把这个目录变成Git可以管理的仓库：
+$ git init
+Initialized empty Git repository in /Users/michael/learngit/.git/
+
+3、查看仓库当前的状态
+$ git status
+
+4、将文件提交到git仓库
+（1）用命令git add告诉Git，把文件添加到仓库：git add <文件名>
+	$ git add readme.txt
+（2）第二步，用命令git commit告诉Git，把文件提交到仓库：git commit -m <描述>
+	$ git commit -m "wrote a readme file"
+	[master (root-commit) eaadf4e] wrote a readme file
+	1 file changed, 2 insertions(+)
+	create mode 100644 readme.txt
+可以一次提交很多文件：
+$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m "add 3 files."
+
+5、当对文件有了修改后：
+（1）$ git status 查看仓库当前的状态
+（2）$ git diff readme.txt 查看具体修改了什么内容
+（3）$ git add readme.txt 将文件添加到git仓库
+（4）$ git commit -m "add distributed" 将文件提交到git仓库
+（5）$ git status 查看仓库当前的状态
