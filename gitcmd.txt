@@ -29,3 +29,34 @@ $ git commit -m "add 3 files."
 （3）$ git add readme.txt 将文件添加到git仓库
 （4）$ git commit -m "add distributed" 将文件提交到git仓库
 （5）$ git status 查看仓库当前的状态
+
+6、版本切换
+（1）$ git log 命令显示从最近到最远的提交日志，我们可以看到3次提交，最近的一次是append GPL，上一次是add distributed，最早的一次是wrote a readme file。
+	如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数。
+	你看到的一大串类似1094adb...的是commit id（版本号），很重要。
+（2）回退到上一版本：                 										   
+	首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交1094adb...（注意我的提交ID和你的肯定不一样），
+	上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+	$ git reset --hard HEAD^
+	HEAD is now at e475afc add distributed
+（3）回到指定版本（找到指定版本的commit id就可以）
+	$ git reset --hard 1094a（id号不用写全，可以分辨就好）
+	HEAD is now at 83b0afe append GPL
+	如果向上找不到commit id，不要着急：
+	$ git reflog
+	e475afc HEAD@{1}: reset: moving to HEAD^
+	1094adb (HEAD -> master) HEAD@{2}: commit: append GPL
+	e475afc HEAD@{3}: commit: add distributed
+	eaadf4e HEAD@{4}: commit (initial): wrote a readme file
+	要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
