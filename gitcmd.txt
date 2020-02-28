@@ -123,8 +123,22 @@
 	还可以用https://github.com/michaelliao/gitskills.git这样的地址。
 	实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
 	使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+	
+三、创建于合并分支						
+	因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
 
+	Git鼓励大量使用分支：
+	查看分支：git branch
 
+	创建分支：git branch <name>
+
+	切换分支：git checkout <name>或者git switch <name>
+
+	创建+切换分支：git checkout -b <name>或者git switch -c <name>
+
+	合并某分支到当前分支：git merge <name>
+
+	删除分支：git branch -d <name>
 
 
 	
